@@ -21,7 +21,7 @@
             <img :src="foto[counter].link" alt="">
 
                 <div id="dots">
-                  <i class="fa fa-circle" v-for="(selezione, index) in foto" :class="counter == index ? 'active':''" @click="counter = index"></i>
+                  <i class="fa fa-circle" v-for="(select, index) in foto" :class="counter == index ? 'active':''" @click='selezione(index)'></i>
                 </div>
         </div>
         <div id="next" @click="next">

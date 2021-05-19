@@ -43,8 +43,8 @@ const app = new Vue({
             }
             return this.counter += 1
         },
-        selezione(index){
-            app.counter == index;
+        selezione(index) {
+            return this.counter = index;
         }
     },
     mounted() {
