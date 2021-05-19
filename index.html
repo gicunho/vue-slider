@@ -12,22 +12,43 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
+      
       <div id="root" class = "d-flex justify-content-center align-items-center">  
         <div id="prev" @click="prev">
             <i class="fas fa-chevron-left fa-2x fa-fw"></i>
         </div>
         <div id="picture">
-            <img :src="foto[counter]" alt="">
+            <img :src="foto[counter].link" alt="">
+
+                <div id="dots">
+                  <i class="fa fa-circle" v-for="(selezione, index) in foto" :class="counter == index ? 'active':''" @click="counter = index"></i>
+                </div>
         </div>
         <div id="next" @click="next">
             <i class="fas fa-chevron-right fa-2x fa-fw"></i>
         </div>
       </div>
+
       <style>
+          #picture{
+              position: relative;
+          }
           img {
             width: 600px;
             height: 400px;
-            object-fit: contain;
+            object-fit: cover;
+          }
+          #dots {
+              background-color: rgba(0, 0, 0, 0.349);
+              width: 100px;
+              height: 20px;
+              position:absolute;
+              bottom: 10px;
+              right: 50%;
+              transform: translate(50%);
+          }
+          .active {
+            color: white;
           }
       </style>
     <!-- Optional JavaScript -->
